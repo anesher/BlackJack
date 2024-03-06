@@ -6,21 +6,19 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.File;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        //ruta donde se va a guardar
         String rutaAbsoluta = "C:\\Users\\Usuario\\Desktop\\Antonio Eslava Hernández\\Cursos\\Desarollo de aplicaciones web\\Programación\\Trabajos\\Antonio_Eslava_Hernandez_U5";
-
+        //se inicaliza la clase Mazo y Scanner
         Mazo mazo = new Mazo();
         mazo.barajar();
         Scanner sc= new Scanner(System.in);
         try {
-        // Crear un contexto JAXB para la clase Libros
+        // Crear un contexto JAXB para la clase Mano
         JAXBContext jaxbContext = JAXBContext.newInstance(Mano.class);
-
+        // se inicializa la clase mano y se pide una carta al jugador
         Mano manoJugador = new Mano();
-        manoJugador.pedirCarta(mazo);
         manoJugador.pedirCarta(mazo);
         System.out.println("Mano del jugador:");
         System.out.println(manoJugador);
@@ -47,12 +45,12 @@ public class Main {
                 break;
 
             }else{
-                System.out.println("escoja n o s");
+                System.out.println("escoja 1 o 2");
             }
         }
-
+        // conclusion para dar los resultados y terminar el juego
         if (manoJugador.finDeJuego()) {
-            System.out.println("Has perdido, te has pasado de 21.");
+            System.out.println("Has perdido, te has pasado de 21." +manoJugador.valorMano());
         } else {
             System.out.println("Te plantaste con una puntuación de: " + manoJugador.valorMano());
         }

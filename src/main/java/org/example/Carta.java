@@ -3,6 +3,7 @@ package org.example;
 import java.util.Objects;
 
 public class Carta {
+    //enumeracion de los posibles palos que que puede tener una carta
     enum Palo  {
         Trebol,
         Diamantes,
@@ -13,6 +14,7 @@ public class Carta {
     Integer numeroDeCarta;
     public Palo paloCarta;
 
+    //El constructor de la clase Carta se utiliza para crear instancias de cartas con un número y un palo dados
     public Carta(int numeroDeCarta,Palo paloCarta) {
         this.paloCarta=paloCarta;
         if (numeroDeCarta < 1 || numeroDeCarta > 13) {
@@ -20,17 +22,16 @@ public class Carta {
         }
         this.numeroDeCarta = numeroDeCarta;
     }
-
     public int getNumeroDeCarta() {
 
         return numeroDeCarta;
     }
-
     public Palo getPaloCarta() {
 
         return paloCarta;
     }
 
+    ////Este método devuelve el valor de la carta en un juego de Blackjack.
     public int getValor() {
         if (numeroDeCarta == 1) {
             return 11; // Valor de AS en Blackjack
@@ -40,7 +41,7 @@ public class Carta {
             return numeroDeCarta;
         }
     }
-
+    //Este método devuelve una representación en forma de cadena del número de la carta.
     public String mostrarNumero() {
         switch (numeroDeCarta) {
             case 1:
@@ -56,7 +57,7 @@ public class Carta {
         }
     }
 
-
+    //Este método proporciona una representación de cadena de la carta, incluyendo el número y el palo de la carta.
     @Override
     public String toString() {
         return "Carta{" +
